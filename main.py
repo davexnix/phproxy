@@ -16,7 +16,7 @@ def home():
             ipif = ipif.text.strip()
             load = 'http://ip-api.com/json/' + ipif
         else:
-            load = 'https://www.google.com'
+            load = 'https://api.ipify.org/'
 
     response = requests.get(load)
     soup = BeautifulSoup(response.content, 'html.parser')
