@@ -26,6 +26,14 @@ def home():
 
     
     body_tag = soup.find('body')
+    
+    if not body_tag:
+        body_tag = soup.find('head')
+        
+    if not body_tag:
+        body_tag = soup.find('html')
+        
+    
     script_tag = soup.new_tag('script')
     script_tag.string = '''
     document.addEventListener("DOMContentLoaded", function(event){
@@ -48,4 +56,4 @@ def home():
     return str(soup)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
